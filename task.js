@@ -29,3 +29,29 @@ if (amount === 0) {
 } else if (amount >= 5000) {
     console.log("Скидка 10%");
 }
+
+
+
+let cites = ["Тюмень", "Мурманск", "Юровка", "Пермь"]
+
+console.log(sites[2])
+
+let task = {
+    id = 1,
+    title: "Вася не виноват ни в чем" 
+    status: "активна"
+}
+
+console.log(task.status)
+
+let tasks = [
+    {id: 1, title: "Вася ни в чём не виноват 100%", status: "активна"},
+    {id: 2, title: "Позвонить психиатру", status: "выполнена"},
+    {id: 3, title: "Сдать Афину в психушку", status: "активна"}
+]
+
+tasks.push({id: 4, title: "Порогунка", status: "активна"})
+
+console.log(tasks)
+
+console.log(task.title.length)
