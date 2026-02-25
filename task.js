@@ -262,3 +262,7 @@ function renderTasks(){
         })
     })
 }
+
+//ДЗ!!!
+let tabButtons = document.querySelectorAll('.tabs__item')
+let clearButton = document.querySelector('.footer-controls__clear')
