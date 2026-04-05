@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskLite - To Do</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskLite - To Do</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="todo">
-    <header class="header">
-        <div class="container header__container">
-            <div class="header__title">TaskLite</div>
-        </div>
-        <nav class="tads">
-        <a href="" class="tad active">To Do</a>
-        <a href="" class="tad">Kanban</a>
-        <a href="" class="tad">Привычки</a>
-    </nav>
-    </header>
-    <main class="container">
-        <h1 class="page-title">Задачи</h1>
+  <header class="header">
+    <div class="container header__container">
+      <div class="header__title">TaskLite</div>
+      <nav class="tabs">
+        <a href="index.html" class="tab active">To Do</a>
+        <a href="kanban.html" class="tab">Kanban</a>
+        <a href="habits.html" class="tab">Привычки</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <h1 class="page-title">Задачи</h1>
 
-        <div class="form-add">
-            <input type="text" placeholder="Введите задачу" class="form-add__input">
-            <button class="form-add__button">Добавить</button>
-        </div>
+    <form class="form-add">
+      <input type="text" placeholder="Введите задачу" class="form-add__input">
+      <button type="submit" class="form-add__button">Добавить</button>
+    </form>
 
-        <div class="toolbar">
-            <input type="text" placeholder="Поиск задач..." class="toolbar__search">
-            <div class="tabs toolbar-tabs">
-                <button class="tabs__item tabs__item--active">Все</button>
-                <button class="tabs__item" type="button">Активные</button>
-                <button class="tabs__item" type="button">Завершённые</button>
-            </div>
-            <select class="toolbar__sort">
-                <option selected>Сначала старые</option>
-                <option>Сначала новые</option>
-            </select>
-        </div>
+    <div class="toolbar">
+      <input class="toolbar__search" type="text" placeholder="Поиск задач…" />
+      <div class="tabs toolbar__tabs">
+        <button class="tabs__item tabs__item--active" type="button" data-filter="all">Все</button>
+        <button class="tabs__item" type="button">Активные</button>
+        <button class="tabs__item" type="button">Завершённые</button>
+      </div>
+      <select class="toolbar__sort">
+        <option selected>Сначала старые</option>
+        <option>Сначала новые</option>
+        <option>Название A-Z</option>
+        <option>Название Z-A</option>
+      </select>
+    </div>
 
-        <div class="tasks"></div>
+    <div class="tasks"></div>
 
-        <div class="footer-controls">
-            <div class="footer-controls__counters">
-                <span>Всего: 1</span>
-                <span>Активных: 1</span>
-                <span>Выполненных: 0</span>
-            </div>
-            <button class="button button--clean footer-controls__clear" type="button">
-                Очистить выполненные
-            </button>
-        </div>
+    <div class="footer-controls">
+      <div class="footer-controls__counters">
+        <span>Всего: 1</span>
+        <span>Активных: 1</span>
+        <span>Выполненных: 0</span>
+      </div>
+      <button class="button button--clear footer-controls__clear" type="button">
+        Очистить выполненные
+      </button>
+    </div>
 
+  </main>
 
-    </main>
-    
-    <script src="task.js"></script>
+  <script src="task.js"></script>
 </body>
-</html>
 
+</html>
