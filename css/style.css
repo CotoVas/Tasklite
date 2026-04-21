@@ -322,35 +322,43 @@ html, body{
     box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
 }
 
-.column_header{
+.column__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.column__header h2{
+.column__header h2 {
     font-size: 15px;
     font-weight: 600;
-    padding-left: 8px;
+    padding-left: 12px;  
+    margin: 0;
 }
 
-.column__count{
+.column__count {
     font-size: 13px;
+    font-weight: 500;
     color: #64748b;
+    background: #f1f5f9;
+    padding: 2px 8px;
+    border-radius: 20px;
+    min-width: 28px;
+    text-align: center;
 }
 
-.column[data-status="todo"] .column_header h2 {
-    border-left: 4px solid #3b82f6;
+
+.column[data-status="todo"] .column__header h2 {
+    border-left: 4px solid #3b82f6;  
 }
 
-.column[data-status="in-progress"] .column_header h2 {
-    border-left: 4px solid #eab308;
+.column[data-status="in-progress"] .column__header h2 {
+    border-left: 4px solid #eab308; 
 }
 
-.column[data-status="done"] .column_header h2 {
-    border-left: 4px solid #a78bfa;
+.column[data-status="done"] .column__header h2 {
+    border-left: 4px solid #a78bfa;  
 }
 
 .task-list{

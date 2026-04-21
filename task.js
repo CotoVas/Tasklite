@@ -9,6 +9,7 @@ const searchInput = document.querySelector(".toolbar__search");
 const footer = document.querySelector(".footer-controls");
 const sortSelect = document.querySelector(".toolbar__sort");
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let sortOrder = 'old';
 
 function saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -141,7 +142,7 @@ function renderTask(task) {
 
 
 let currentFilter = 'all';
-let sortOrder = 'old';
+
 
 
 function renderAll() {
@@ -160,7 +161,7 @@ function renderAll() {
         );
     }
 
-    let sortOrder = 'new';
+
     const sortedTasks = [...filtered].sort((a, b) => {
         if(sortOrder === 'new') return b.id - a.id
         if(sortOrder === 'old') return a.id - b.id
@@ -221,7 +222,7 @@ function formatDate(date){
   return `${day}.${month}.${year}, ${hour}:${min}`
 }
 
-let sortOrder = 'new';
+
 sortSelect.addEventListener('change', () => {
   const val = sortSelect.value
   if(val.includes('новые')) sortOrder = 'new'
@@ -254,6 +255,22 @@ function updateCounters() {
 }
 
 updateCounters();
+
+const filterButtons = document.querySelectorAll('.tabs__item');
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+        filterButtons.forEach(b => b.classList.remove('tabs__item--active'));
+        btn.classList.add('tabs__item--active');
+
+        const btnText = btn.textContent.trim();
+        if (btnText === 'Все') currentFilter = 'all';
+        else if (btnText === 'Активные') currentFilter = 'active';
+        else if (btnText === 'Завершённые') currentFilter = 'done';
+
+        renderAll();
+    });
+});
 
 const clearButton = document.querySelector('.footer-controls__clear');
 clearButton.addEventListener('click', () => {

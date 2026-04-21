@@ -1,5 +1,5 @@
 let boardData = {
-    "to-do": [],
+    "todo": [],
     "in-progress": [],
     "done": []
 };
@@ -90,19 +90,35 @@ function renderBoard() {
         tasks.forEach((task, index) => {
             const taskEl = document.createElement('article');
             taskEl.classList.add('task', 'kanban');
-            if (task.priority) taskEl.classList.add(`priority-${task.priority}`);
-            
             taskEl.draggable = true;
+
+            let priorityText = 'Средний';
+            let priorityClass = 'medium';
+
+            switch(task.priority){
+                case 'high':
+                    priorityText = 'Высокий';
+                    priorityClass = 'high';
+                    break;
+                case 'low':
+                    priorityText = 'Низкий';
+                    priorityClass = 'low';
+                    break;
+                default:
+                    priorityText = 'Средний';
+                    priorityClass = 'medium';
+            }
+
             taskEl.innerHTML = `
                 <h3 class="task__title">${escapeHtml(task.title)}</h3>
                 ${task.desc ? `<p class="task__desc">${escapeHtml(task.desc)}</p>` : ''}
-                <footer class="task__footer">
-                    <time class="task__date">${task.deadline ? escapeHtml(task.deadline) : ''}</time>
+                <footer class="task_footer">
+                    <span class="task_label ${priorityClass}">${priorityText}</span>
+                    <time class="task_date">${task.deadline ? escapeHtml(task.deadline) : ''}</time>
                 </footer>
             `;
             
             addDragEvents(taskEl, index);
-            
 
             if (addBtn && addBtn.parentNode === taskList) {
                 taskList.insertBefore(taskEl, addBtn);
@@ -111,7 +127,7 @@ function renderBoard() {
             }
         });
     });
-    updateAllCounters()
+    updateAllCounters();
 }
 
 
